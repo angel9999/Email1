@@ -44,9 +44,10 @@ def home():
 
 @app.route('/posted', methods=['POST'])
 def post():
-    msg = request.form["message"];
+    usr = session['user_data']['login']
+    msg = request.form["message"]
 
-    return render_template('home.html', past_posts=msg)
+    return render_template('home.html', past_posts = usr+": "+msg)
     #This function should add the new post to the JSON file of posts and then render home.html and display the posts.  
     #Every post should include the username of the poster and text of the post. 
 #redirect to GitHub's OAuth page and confirm callback URL
