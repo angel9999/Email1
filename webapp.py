@@ -44,7 +44,7 @@ def home():
 
 @app.route('/posted', methods=['POST'])
 def post():
-    msg = request.forum;
+    msg = request.forum["message"];
 
     return render_template('home.html', past_posts=msg)
     #This function should add the new post to the JSON file of posts and then render home.html and display the posts.  
