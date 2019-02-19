@@ -5,18 +5,19 @@
 {% block content %}
   <h1>Forum</h1>
   <p>Basic fourm, be nice.</p>
-  
-  <form action='/posted' method="post">
-    <textarea name="message" style="width:100%; height:100px;"></textarea>
-    <br>
-    <input type="submit" value="Post">
-  </form>
-  
+
+  <div style="border: 1px solid gray; border-radius: 2px;">
   {% if past_posts %}
 	  <p>
 	  {{ past_posts }}
 	  </p>
   {% endif %}
+  </div>
 
+  <form action='/posted' method="post">
+    <textarea name="message" style="width:100%; height:100px;"></textarea>
+    <br>
+    <input type="submit" value="Post">
+  </form>
 
 {% endblock %}
