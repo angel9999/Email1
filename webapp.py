@@ -30,10 +30,6 @@ github = oauth.remote_app(
         authorize_url='https://github.com/login/oauth/authorize' #URL for github's OAuth login
         )
 
-#TODO: Create and set a global variable for the name of you JSON file here.  The file will be storedd on Heroku, so you don't need to make it in GitHub
-
-#TODO: Create the file on Heroku using os.system.  Ex) os.system("echo '[]'>"+myFile) puts '[]' into your file
-
 @app.context_processor
 def inject_logged_in():
     return {"logged_in":('github_token' in session)}
@@ -46,6 +42,16 @@ def home():
 def post():
     usr = session['user_data']['login']
     msg = request.form["message"]
+
+    try:        
+        f = open(forum_posts, mode='rw')
+        data = json.load(f)
+        print(type(f))
+    except:
+        os.system("type nul > "+forum_posts)
+        f = open(forum_posts, mode='rw')
+        data = json.load(f)
+        print(type(f))
 
     return render_template('home.html', past_posts = usr+": "+msg)
     #This function should add the new post to the JSON file of posts and then render home.html and display the posts.  
