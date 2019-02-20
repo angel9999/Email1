@@ -44,12 +44,14 @@ def post():
     msg = request.form["message"]
 
     try:        
-        f = open(forum_posts, mode='rw')
+        f = open(forum_posts, mode='r+w')
         data = json.load(f)
         print(type(f))
     except:
         os.system("type nul > "+forum_posts)
-        f = open(forum_posts, mode='rw')
+        f = open(forum_posts, mode='w')
+        f.close();
+        f = open(forum_posts, mode="r+w")
         data = json.load(f)
         print(type(f))
 
