@@ -47,7 +47,7 @@ def post():
         f = open(forum_posts, mode='r+')
         data = json.load(f)
         print(type(f))
-        post{"username": usr, "text": msg}
+        post={"username": usr, "text": msg}
         data.append(post)
     except:
         os.system("type nul > "+forum_posts)
