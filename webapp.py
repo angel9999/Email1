@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.debug = True #Change this to False for production
 
 forum_posts='posts.json'
-os.system("echo []>"+ myfile)
+os.system("echo [] >"+ myfile)
 #remove vvv for production
 #os.environ['OAUTHLIB_INSECURE_TRANSPORT']='1'
 app.secret_key = os.environ['SECRET_KEY'] #used to sign session cookies
