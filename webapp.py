@@ -12,6 +12,7 @@ app.debug = True #Change this to False for production
 
 forum_posts='posts.json'
 os.system("echo [] >"+ myfile)
+
 #remove vvv for production
 #os.environ['OAUTHLIB_INSECURE_TRANSPORT']='1'
 app.secret_key = os.environ['SECRET_KEY'] #used to sign session cookies
@@ -42,22 +43,16 @@ def home():
 def post():
     usr = session['user_data']['login']
     msg = request.form["message"]
-
-    try:        
-        f = open(forum_posts, mode='r+')
+    post={"username": usr, "text": msg}
+    
+    with open(forum_posts, mode='r') as f:
         data = json.load(f)
-        print(type(f))
-        post={"username": usr, "text": msg}
-        data.append(post)
-    except:
-        os.system("type nul > "+forum_posts)
-        f = open(forum_posts, mode='w')
-        f.close();
-        f = open(forum_posts, mode="r+")
-        data = json.load(f)
-        print(type(f))
+    data.append(post)
+    
+    with open(forum_posts, mode='w') as f:
+        f.dump(data)
 
-    return render_template('home.html', past_posts = usr+": "+msg)
+    return render_template('home.html', past_posts=data)
     #This function should add the new post to the JSON file of posts and then render home.html and display the posts.  
     #Every post should include the username of the poster and text of the post. 
 #redirect to GitHub's OAuth page and confirm callback URL
