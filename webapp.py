@@ -43,7 +43,7 @@ def home():
 def post():
     usr = session['user_data']['login']
     msg = request.form["message"]
-    post={"username": usr, "text": msg}
+    post={"usr": usr, "msg": msg}
     
     with open(myfile, mode='r') as f:
         data = json.load(f)
@@ -51,8 +51,11 @@ def post():
     
     with open(myfile, mode='w') as f:
         json.dump(data, f)
-
-    return render_template('home.html', past_posts=data)
+    
+    messages = ""
+    for i in data:
+        messages += "<p>" + i['msg'] + ": " + i['usr'] + "</p>" + "<br>"
+    return render_template('home.html', past_posts=Markup(data))
     #This function should add the new post to the JSON file of posts and then render home.html and display the posts.  
     #Every post should include the username of the poster and text of the post. 
 #redirect to GitHub's OAuth page and confirm callback URL
