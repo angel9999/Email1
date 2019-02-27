@@ -54,7 +54,7 @@ def post():
     
     messages = ""
     for i in data:
-        messages += "<p>" + i['msg'] + ": " + i['usr'] + "</p>" + "<br>"
+        messages += "<p>" + i['msg'] + ": " + i['usr'] + "</p>"
     return render_template('home.html', past_posts=Markup(messages))
     #This function should add the new post to the JSON file of posts and then render home.html and display the posts.  
     #Every post should include the username of the poster and text of the post. 
