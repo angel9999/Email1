@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 app.debug = True #Change this to False for production
 
-forum_posts='posts.json'
+myfile='posts.json'
 os.system("echo [] >"+ myfile)
 
 #remove vvv for production
@@ -45,11 +45,11 @@ def post():
     msg = request.form["message"]
     post={"username": usr, "text": msg}
     
-    with open(forum_posts, mode='r') as f:
+    with open(myfile, mode='r') as f:
         data = json.load(f)
     data.append(post)
     
-    with open(forum_posts, mode='w') as f:
+    with open(myfile, mode='w') as f:
         f.dump(data)
 
     return render_template('home.html', past_posts=data)
