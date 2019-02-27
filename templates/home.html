@@ -6,14 +6,15 @@
   <h1>Forum</h1>
   <p>Basic fourm, be nice.</p>
 
-  {% if past_posts %}
   <div style="border: 2px solid gray; border-radius: 3px;">
-	  <p>
-	  {{ past_posts }}
-	  </p>
-  </div>
-  {% endif %}
-	<br>
+  <p>
+      {% if past_posts %}
+        {{ past_posts }}
+      {% else %}
+        This is a forum is a moderated space, please login to join the disscusion. 
+      {% endif %}
+  </p>
+  </div><br>
   <form action='/posted' method="post">
     <textarea name="message" style="width:100%; height:100px;"></textarea>
     <br>
