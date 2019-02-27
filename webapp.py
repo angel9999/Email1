@@ -32,7 +32,7 @@ github = oauth.remote_app(
         )
 def posts_to_html(posts):
     messages = ""
-    for i in data:
+    for i in posts:
         messages += "<p>" + i['usr'] + ": " + i['msg'] + "</p>"
     return Markup(messages)
 
