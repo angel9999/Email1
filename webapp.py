@@ -30,6 +30,11 @@ github = oauth.remote_app(
         access_token_url='https://github.com/login/oauth/access_token',  
         authorize_url='https://github.com/login/oauth/authorize' #URL for github's OAuth login
         )
+def posts_to_html(posts):
+    messages = ""
+    for i in data:
+        messages += "<p>" + i['usr'] + ": " + i['msg'] + "</p>"
+    return Markup(messages)
 
 @app.context_processor
 def inject_logged_in():
@@ -52,11 +57,9 @@ def post():
     with open(myfile, mode='w') as f:
         json.dump(data, f)
     
-    messages = ""
-    for i in data:
-        messages += "<p>" + i['usr'] + ": " + i['msg'] + "</p>"
+    
         
-    return render_template('home.html', past_posts=Markup(messages))
+    return render_template('home.html', past_posts=posts_to_html(data))
     #This function should add the new post to the JSON file of posts and then render home.html and display the posts.  
     #Every post should include the username of the poster and text of the post. 
 #redirect to GitHub's OAuth page and confirm callback URL
