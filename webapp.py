@@ -42,7 +42,9 @@ def inject_logged_in():
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    with open(myfile, mode='r') as f:
+        data = json.load(f)
+    return render_template('home.html', past_posts=posts_to_html(data))
 
 @app.route('/posted', methods=['POST'])
 def post():
@@ -52,14 +54,13 @@ def post():
     
     with open(myfile, mode='r') as f:
         data = json.load(f)
+        
     data.append(post)
     
     with open(myfile, mode='w') as f:
         json.dump(data, f)
-    
-    
         
-    return render_template('home.html', past_posts=posts_to_html(data))
+    return render_template('home.html')
     #This function should add the new post to the JSON file of posts and then render home.html and display the posts.  
     #Every post should include the username of the poster and text of the post. 
 #redirect to GitHub's OAuth page and confirm callback URL
