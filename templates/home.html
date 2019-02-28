@@ -7,20 +7,20 @@
   <p>Basic fourm, be nice.</p>
 
   {% if logged_in %}
-  <div style="border: 2px solid gray; border-radius: 3px;">
       {% if past_posts %}
-        {{ past_posts }}
+        <div style="border: 2px solid gray; border-radius: 3px;">
+          {{ past_posts }}
+        </div>
       {% else %}
         <p> Be the first to post! </p>
       {% endif %}
-  </div><br>
-  <form action='/posted' method="post">
-    <textarea name="message" style="width:100%; height:100px;"></textarea>
-    <br>
-    <input type="submit" value="Post">
-  </form>
+      <form action='/posted' method="post">
+        <textarea name="message" style="width:100%; height:100px;"></textarea>
+        <br>
+        <input type="submit" value="Post">
+      </form>
   {% else %}
-    <p> This is a forum is a moderated space, please login to join the disscusion. </p>
+      <p> This is a forum is a moderated space, please login to join the disscusion. </p>
   {% endif %}
 
 {% endblock %}
