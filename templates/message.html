@@ -4,6 +4,6 @@
 
 {% block content %}
   <p>{{ message }}</p>
-  <a href="/" class="btn btn-default"> return to forum </a>
+  <a href="{{url_for("home")}}" class="btn btn-default"> return to forum </a>
 
 {% endblock %}
