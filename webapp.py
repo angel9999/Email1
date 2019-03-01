@@ -33,7 +33,7 @@ github = oauth.remote_app(
 def posts_to_html(posts):
     messages = ""
     for i in posts:
-        messages += "<p>" + i['usr'] + ": " + i['msg'] + "</p>"
+        messages += "<p class='posted'>" + i['usr'] + ": " + i['msg'] + "</p>"
     return Markup(messages)
 
 @app.context_processor
