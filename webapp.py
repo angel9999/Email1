@@ -33,7 +33,7 @@ github = oauth.remote_app(
 def posts_to_html(posts):
     messages = ""
     for i in posts:
-        messages += "<p class='posted'>" + i['usr'] + ": " + i['msg'].replace("\r\n", "<br>") + "</p>"
+        messages += "<div class='posted'><p class='name'> [usr] <\p>: <p class='message'> [msg] </p></div>".replace(["[usr]", "[msg]"], [i['usr'], ['msg'].replace("\r\n", "<br>")])
     return Markup(messages)
 
 @app.context_processor
