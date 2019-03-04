@@ -33,8 +33,8 @@ github = oauth.remote_app(
 def posts_to_html(posts):
     messages = ""
     for i in posts:
-        messages += "<div class='posted'><p class='name'> %s <\p>: <p class='message'> %s </p></div>" % (i['usr'], ['msg'])
-    return Markup(messages)
+        messages += "<div class='posted'><p class='name'> %s <\p>: <p class='message'> %s </p></div>" % (i['usr'], i['msg'])
+    return Markup(message)
 
 @app.context_processor
 def inject_logged_in():
