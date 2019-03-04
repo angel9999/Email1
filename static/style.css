@@ -11,6 +11,9 @@ body {
 	margin-bottom: 1px;
 	border-bottom: 1px;
 	border-top: 1px;
+	border-left: 3px;
+	border-right: 1px;
+	border-bottom: 1px;
 	border-color: black;
 	border-style: solid;
 }
