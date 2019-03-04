@@ -17,6 +17,7 @@ body {
 
 p.name {
 	margin-bottom: 3px;
+	margin-left: 2px;
 }
 
 p.message {
