@@ -34,7 +34,7 @@ def posts_to_html(posts):
     messages = ""
     for i in posts:
         messages += "<div class='posted'><p class='name'> %s <\p>: <p class='message'> %s </p></div>" % (i['usr'], i['msg'])
-    return Markup(message)
+    return Markup(messages)
 
 @app.context_processor
 def inject_logged_in():
