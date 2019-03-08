@@ -6,20 +6,5 @@
   <h1>Forum</h1>
   <p>Welcome you can use this website to schecdule your day :)w</p>
 
-  {% if logged_in %}
-      {% if past_posts %}
-          {{ past_posts }}
-        <br>
-      {% else %}
-        <p> Be the first to post! </p>
-      {% endif %}
-      <form action='/posted' method="post">
-        <textarea name="message" style="width:100%; height:100px;"></textarea>
-        <br>
-        <input type="submit" value="Post">
-      </form>
-  {% else %}
-      <p> This is a forum is a moderated space, please login to join the disscusion. </p>
-  {% endif %}
 
 {% endblock %}
