@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}Forum{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center">Page3</h2>
+<br>
+<p>Now Enter Homework For your 3rd period</p>
+<br>
+ <div class="container">
+  <form action="/next4" method="POST">
+    <div >
+		<input type="text" value="3rd " placeholder="Enter" name="data4">
+    </div>
+	
+	<br>
+
+	<button type="submit" class="btn btn-outline-success btn-lg" style=background-color:white>Next</button>
+  </form>
+  </DIV>
+{% endblock %}

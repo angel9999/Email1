@@ -1,25 +1,21 @@
-#content {
-     margin-left: 10px;
-     margin-right: 10px;
+p
+{
+	 text-align: center;
+	 font-family: "Comic Sans MS";
+	 font-size: 200%;
 }
-
-.posted {
-	margin-top: 2px;
-	margin-bottom: 1px;
-	border-bottom: 1px;
-	border-top: 1px;
-	border-left: 3px;
-	border-right: 2px;
-	border-bottom: 1px;
-	border-color: black;
-	border-style: solid;
+h2{
+	 text-align: center;
+	 font-family: "Comic Sans MS";
+	 font-size: 200%;
 }
-
-p.name {
-	margin-bottom: 3px;
-	margin-left: 2px;
+form
+{
+	 text-align: center;
 }
-
-p.message {
-	margin-left: 5px;
+body {
+  background-color: lightblue;
+}
+input{
+	
 }

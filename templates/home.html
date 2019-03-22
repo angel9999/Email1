@@ -3,8 +3,18 @@
 {% block title %}Forum{% endblock %}
 
 {% block content %}
-  <h1>Forum</h1>
-  <p>Welcome you can use this website to schecdule your day :)</p>
+<h2 style="text-align: center">HOME PAGE</h2>
+<br>
+  <p>Welcome you can use this website to schecdule your day :)<br>Enter Todays day EX:Monday 3/11</p>
+  
+
+<div class="container">
+  <form action="/p2" method="POST">
+    <div >
+		<input type="textarea" placeholder="Enter" name="data1">
+    </div>
+   
+    
 
 
 {% endblock %}
